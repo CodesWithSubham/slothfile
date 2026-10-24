@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+/* ---- SlothFile design tokens (Tailwind v4 CSS-first config) ---- */
+:root {
+  --sf-bg: #f6f5f1;
+  --sf-surface: #ffffff;
+  --sf-surface-2: #efede7;
+  --sf-text: #1f2420;
+  --sf-text-muted: #5d655e;
+  --sf-border: #dedbd2;
+  --sf-accent: #2f6b4f;
+  --sf-accent-hover: #265a42;
+  --sf-accent-soft: #e3efe8;
+  --sf-accent-fg: #ffffff;
+  --sf-warn: #94620a;
+  --sf-warn-soft: #f8eed8;
+  --sf-danger: #a3362b;
+  --sf-danger-soft: #f8e4e1;
+  --sf-info: #2d5a85;
+  --sf-info-soft: #e1ebf4;
+  --sf-ring: #2f6b4f;
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  --sf-bg: #161a17;
+  --sf-surface: #1e231f;
+  --sf-surface-2: #262c27;
+  --sf-text: #e9ece8;
+  --sf-text-muted: #a0aaa2;
+  --sf-border: #343b35;
+  --sf-accent: #6bb08c;
+  --sf-accent-hover: #82c3a1;
+  --sf-accent-soft: #223a2d;
+  --sf-accent-fg: #0f1a13;
+  --sf-warn: #e0b45f;
+  --sf-warn-soft: #3a2f17;
+  --sf-danger: #ee8b80;
+  --sf-danger-soft: #402320;
+  --sf-info: #82b2df;
+  --sf-info-soft: #1f3345;
+  --sf-ring: #6bb08c;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--sf-bg);
+  --color-surface: var(--sf-surface);
+  --color-surface-2: var(--sf-surface-2);
+  --color-ink: var(--sf-text);
+  --color-muted: var(--sf-text-muted);
+  --color-line: var(--sf-border);
+  --color-accent: var(--sf-accent);
+  --color-accent-hover: var(--sf-accent-hover);
+  --color-accent-soft: var(--sf-accent-soft);
+  --color-accent-fg: var(--sf-accent-fg);
+  --color-warn: var(--sf-warn);
+  --color-warn-soft: var(--sf-warn-soft);
+  --color-danger: var(--sf-danger);
+  --color-danger-soft: var(--sf-danger-soft);
+  --color-info: var(--sf-info);
+  --color-info-soft: var(--sf-info-soft);
+  --font-sans: 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Georgia', 'Iowan Old Style', 'Palatino Linotype', serif;
+  --font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-card: 0 1px 2px rgb(20 30 22 / 0.05), 0 1px 1px rgb(20 30 22 / 0.03);
+  --shadow-pop: 0 10px 30px rgb(20 30 22 / 0.18);
+}
+
+html, body, #root { height: 100%; }
+body { margin: 0; background: var(--sf-bg); color: var(--sf-text); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 2px solid var(--sf-ring); outline-offset: 2px; border-radius: 4px; }
+::selection { background: var(--sf-accent-soft); }
+.sf-scroll { scrollbar-width: thin; scrollbar-color: var(--sf-border) transparent; }
+@keyframes sf-shimmer { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
+@keyframes sf-pop { from { opacity: 0; transform: translateY(4px) scale(.98) } to { opacity: 1; transform: none } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

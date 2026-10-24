@@ -1,0 +1,15 @@
+node_modules/
+out/
+dist/
+release/
+*.db
+*.db-wal
+*.db-shm
+*.log
+.env
+.env.local
+test-results/
+playwright-report/
+coverage/
+.DS_Store
+*.gguf

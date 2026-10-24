@@ -1,0 +1,34 @@
+appId: dev.slothfile.app
+productName: SlothFile
+copyright: SlothFile contributors
+directories:
+  output: release
+  buildResources: build
+files:
+  - out/**
+  - package.json
+  - '!**/*.map'
+  - '!**/{test,tests,__tests__}/**'
+  - '!node_modules/**/{README*,CHANGELOG*,*.md,*.ts}'
+# Native module must live outside the asar archive to be loadable.
+asarUnpack:
+  - '**/node_modules/better-sqlite3/**'
+# better-sqlite3 13 ships N-API prebuilds (incl. win32-x64), so no node-gyp rebuild is needed.
+npmRebuild: false
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: build/icon.png
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  # Uninstall never touches %APPDATA%\SlothFile (user data); users clear it from Settings.
+  deleteAppDataOnUninstall: false
+linux:
+  target: [dir]
+  category: Utility
+mac:
+  target: [dir]
+  category: public.app-category.utilities
